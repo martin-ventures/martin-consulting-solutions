@@ -5,7 +5,7 @@
   document.querySelectorAll("form.library-form").forEach(function (form) {
     var status = form.querySelector(".form-status");
     var button = form.querySelector("button[type=submit]");
-    function say(text, ok) { status.textContent = text; status.style.color = ok ? "#166534" : "#b91c1c"; }
+    function say(text, ok) { status.textContent = text; status.style.color = ok ? "#86efac" : "#fca5a5"; }
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       var email = form.email.value.trim();

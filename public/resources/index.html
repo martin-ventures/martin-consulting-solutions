@@ -43,7 +43,17 @@
     .prose-mcs table { margin-top: 1rem; width: 100%; border-collapse: collapse; font-size: 0.92rem; }
     .prose-mcs th { text-align: left; background: #f1f5f9; color: #2c4a6b; padding: 0.6rem 0.75rem; border-bottom: 1px solid #e2e8f0; }
     .prose-mcs td { vertical-align: top; padding: 0.6rem 0.75rem; border-bottom: 1px solid #e2e8f0; color: #334155; line-height: 1.6; }
-    .prose-mcs .scroll { overflow-x: auto; }
+    .prose-mcs .scroll { overflow-x: auto; border-radius: 1rem; border: 1px solid #e2e8f0; background: #fff; margin-top: 1rem; }
+    .prose-mcs .scroll table { margin-top: 0; }
+    .prose-mcs th { background: #2c4a6b !important; color: #fff !important; border-bottom: 0 !important; }
+    .prose-mcs tr:nth-child(odd) td { background: #f8fafc; }
+    .prose-mcs td:first-child strong { color: #2c4a6b; }
+    .prose-mcs h2 { padding-left: 0.85rem; border-left: 4px solid #e8a820; }
+    .prose-mcs h3 { color: #2a7aaa !important; }
+    .prose-mcs ol > li::marker { color: #c48a10; font-weight: 700; }
+    .prose-mcs ul > li::marker { color: #3b9fd4; }
+    .hero-gradient { background: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(59,159,212,0.18), transparent 65%), linear-gradient(160deg, #0f1f33 0%, #1e3349 45%, #2c4a6b 100%); }
+    .brandbar { display: flex; height: 4px; } .brandbar span { flex: 1; }
   </style>
 </head>
 
@@ -55,25 +65,32 @@
       <nav class="hidden items-center gap-6 text-sm font-medium text-slate-600 md:flex">
         <a href="/#services" class="transition hover:text-navy">Services</a>
         <a href="/#about" class="transition hover:text-navy">About</a>
-        <a href="/resources/" class="text-navy">Resources</a>
+        <a href="/#approach" class="transition hover:text-navy">Our Approach</a>
+        <a href="/resources/" class="font-semibold text-navy">Resources</a>
         <a href="/#contact" class="ml-2 rounded-xl bg-navy px-5 py-2.5 font-semibold text-white transition hover:bg-navy-light">Get in Touch</a>
       </nav>
       <a href="/resources/" class="rounded-xl bg-navy px-4 py-2 text-sm font-semibold text-white md:hidden">Resources</a>
     </div>
   </header>
 
-  <main class="px-6 py-14 lg:py-20">
+  <section class="hero-gradient px-6 py-14 text-white lg:py-20">
+    <div class="mx-auto max-w-3xl">
+      <div class="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-widest text-sky-300">Resources</div>
+      <h1 class="mt-5 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl" style="line-height:1.15">The MCS resource library</h1>
+      <p class="mt-5 max-w-2xl text-lg leading-8 text-slate-300">Working guides from Martin Consulting Solutions on AI visibility and AI strategy.</p>
+    </div>
+  </section>
+  <div class="brandbar"><span style="background:#e8a820"></span><span style="background:#3b9fd4"></span><span style="background:#3d5f85"></span><span style="background:#1e3349"></span></div>
+  <main class="px-6 py-12 lg:py-16">
     <article class="prose-mcs mx-auto max-w-3xl">
-      <p class="text-xs font-bold uppercase tracking-[0.25em] text-sky" style="margin-top:0;color:#3b9fd4">Resources</p>
-      <h1 class="mt-3 text-3xl font-bold tracking-tight text-navy sm:text-4xl">The MCS resource library</h1>
 
-      <p class="mt-5 text-base leading-8">Working guides from Martin Consulting Solutions. Every resource is free to read in full on its own page, with no sign-up. Each page also offers a one-page PDF by email if a printable copy would help.</p>
+      <p style="margin-top:0" class="text-base leading-8">Every resource is free to read in full on its own page, with no sign-up. Each page also offers a one-page PDF by email if a printable copy would help.</p>
 
       <h2>For owners of local businesses</h2>
       <p>Customers now ask AI assistants who to hire. These resources show how to find out whether you are named, and what to do about it.</p>
       <div class="mt-5 grid gap-5">
-        <a href="/resources/ai-visibility-check/" class="block rounded-[1.5rem] border border-slate-200 bg-white p-6 shadow-sm transition hover:shadow-md" style="text-decoration:none">
-          <span class="text-xs font-bold uppercase tracking-widest" style="color:#3b9fd4">Guide · 5 minute read</span>
+        <a href="/resources/ai-visibility-check/" class="block rounded-[1.5rem] border border-slate-200 bg-white p-6 shadow-sm transition hover:shadow-md" style="text-decoration:none;border-top:5px solid #c48a10">
+          <span class="text-xs font-bold uppercase tracking-widest" style="color:#c48a10">Guide · 5 minute read</span>
           <span class="mt-2 block text-lg font-bold text-navy">The 10-minute AI visibility check</span>
           <span class="mt-2 block text-sm leading-6" style="color:#475569">Six steps to find out whether AI assistants like ChatGPT, Gemini, and Perplexity name your business, and what to fix first.</span>
           <span class="mt-3 block text-sm font-semibold" style="color:#2a7aaa">Read it →</span>
@@ -83,7 +100,7 @@
       <h2>For agency, IT, and transformation leaders</h2>
       <p>These resources cover how to set up AI work so that it holds up: structure, governance, and the habits that make results repeatable.</p>
       <div class="mt-5 grid gap-5">
-        <a href="/resources/ai-stack-framework/" class="block rounded-[1.5rem] border border-slate-200 bg-white p-6 shadow-sm transition hover:shadow-md" style="text-decoration:none">
+        <a href="/resources/ai-stack-framework/" class="block rounded-[1.5rem] border border-slate-200 bg-white p-6 shadow-sm transition hover:shadow-md" style="text-decoration:none;border-top:5px solid #3b9fd4">
           <span class="text-xs font-bold uppercase tracking-widest" style="color:#3b9fd4">Framework · 6 minute read</span>
           <span class="mt-2 block text-lg font-bold text-navy">The AI stack framework: the six layers, and the lessons behind them</span>
           <span class="mt-2 block text-sm leading-6" style="color:#475569">The set of files and habits that lets an AI assistant start each session where the last one stopped, and the problem that led to each layer.</span>
