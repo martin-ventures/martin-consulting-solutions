@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The AI Stack Framework: Six Layers That Let an AI Assistant Keep Its Place | Martin Consulting Solutions</title>
+  <meta name="description" content="What an AI stack is, the six layers we run every day (workspace, memory, handoffs, skills, principles, guardrails), the problem behind each one, and four steps to start this week." />
+  <meta name="author" content="Jeremy Martin" />
+  <link rel="canonical" href="https://www.martincs.org/resources/ai-stack-framework/" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="The AI Stack Framework: Six Layers That Let an AI Assistant Keep Its Place | Martin Consulting Solutions" />
+  <meta property="og:description" content="What an AI stack is, the six layers we run every day (workspace, memory, handoffs, skills, principles, guardrails), the problem behind each one, and four steps to start this week." />
+  <meta property="og:url" content="https://www.martincs.org/resources/ai-stack-framework/" />
+  <meta property="og:site_name" content="Martin Consulting Solutions" />
+  <link rel="icon" href="/favicon.png" type="image/png" />
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "What is an AI stack? The six layers, and the lessons behind them", "description": "What an AI stack is, the six layers we run every day (workspace, memory, handoffs, skills, principles, guardrails), the problem behind each one, and four steps to start this week.", "datePublished": "2026-11-17", "dateModified": "2026-11-17", "mainEntityOfPage": "https://www.martincs.org/resources/ai-stack-framework/", "author": {"@type": "Person", "name": "Jeremy Martin", "jobTitle": "Senior Business Architect", "worksFor": {"@type": "Organization", "name": "Martin Consulting Solutions LLC", "url": "https://www.martincs.org"}}, "publisher": {"@type": "Organization", "name": "Martin Consulting Solutions LLC", "url": "https://www.martincs.org", "logo": {"@type": "ImageObject", "url": "https://www.martincs.org/logo.png"}}}</script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy:  { DEFAULT: '#2c4a6b', light: '#3d5f85', dark: '#1e3349' },
+            gold:  { DEFAULT: '#e8a820', light: '#f0c050', dark: '#c48a10' },
+            sky:   { DEFAULT: '#3b9fd4', light: '#5eb5e4', dark: '#2a7aaa' },
+          },
+          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
+        },
+      },
+    };
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    .prose-mcs h2 { margin-top: 2.5rem; font-size: 1.5rem; line-height: 2rem; font-weight: 700; color: #2c4a6b; letter-spacing: -0.01em; }
+    .prose-mcs h3 { margin-top: 1.5rem; font-size: 1.1rem; font-weight: 700; color: #2c4a6b; }
+    .prose-mcs p { margin-top: 0.9rem; line-height: 1.8; color: #334155; }
+    .prose-mcs ul, .prose-mcs ol { margin-top: 0.9rem; padding-left: 1.4rem; color: #334155; line-height: 1.8; }
+    .prose-mcs ul { list-style: disc; } .prose-mcs ol { list-style: decimal; }
+    .prose-mcs li { margin-top: 0.35rem; }
+    .prose-mcs a { color: #2a7aaa; text-decoration: underline; }
+    .prose-mcs table { margin-top: 1rem; width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+    .prose-mcs th { text-align: left; background: #f1f5f9; color: #2c4a6b; padding: 0.6rem 0.75rem; border-bottom: 1px solid #e2e8f0; }
+    .prose-mcs td { vertical-align: top; padding: 0.6rem 0.75rem; border-bottom: 1px solid #e2e8f0; color: #334155; line-height: 1.6; }
+    .prose-mcs .scroll { overflow-x: auto; }
+  </style>
+</head>
+
+<body class="font-sans antialiased bg-slate-50 text-slate-900">
+
+  <header class="sticky top-0 z-50 border-b border-slate-200/60 bg-white/90 backdrop-blur-xl">
+    <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 lg:px-8">
+      <a href="/" class="flex items-center"><img src="/logo.png" alt="Martin Consulting Solutions" class="h-10 w-auto" /></a>
+      <nav class="hidden items-center gap-6 text-sm font-medium text-slate-600 md:flex">
+        <a href="/#services" class="transition hover:text-navy">Services</a>
+        <a href="/#about" class="transition hover:text-navy">About</a>
+        <a href="/resources/" class="text-navy">Resources</a>
+        <a href="/#contact" class="ml-2 rounded-xl bg-navy px-5 py-2.5 font-semibold text-white transition hover:bg-navy-light">Get in Touch</a>
+      </nav>
+      <a href="/resources/" class="rounded-xl bg-navy px-4 py-2 text-sm font-semibold text-white md:hidden">Resources</a>
+    </div>
+  </header>
+
+  <main class="px-6 py-14 lg:py-20">
+    <article class="prose-mcs mx-auto max-w-3xl">
+      <p class="text-xs font-bold uppercase tracking-[0.25em] text-sky" style="margin-top:0;color:#3b9fd4">Framework · AI strategy</p>
+      <h1 class="mt-3 text-3xl font-bold tracking-tight text-navy sm:text-4xl">What is an AI stack? The six layers, and the lessons behind them</h1>
+<p class="text-sm text-slate-500" style="color:#64748b">By Jeremy Martin, Martin Consulting Solutions · Published November 17, 2026 · 6 minute read</p>
+      <div class="mt-6 rounded-[1.25rem] border-l-4 bg-white p-5 shadow-sm" style="border-color:#e8a820">
+        <p style="margin-top:0"><strong class="text-navy">TL;DR:</strong> An AI stack is the set of files and habits around an AI assistant that lets each session start where the last one stopped. Ours has six layers: workspace, memory, handoffs, skills, principles, and guardrails. Each one exists because of a specific problem we hit. You can start this week with one folder, five notes, and a handoff habit.</p>
+      </div>
+
+      <h2>What is an AI stack?</h2>
+      <p>An AI stack is everything you keep around an AI assistant so that its work adds up over time. An assistant forgets everything when a conversation ends. The stack is the set of files and habits that gives the next session what the last one learned.</p>
+      <p>This page shows the six layers we run every day across client work, product work, and personal projects, the names we gave the working parts, and the problem that led to each one.</p>
+
+      <h2>What are the six layers of an AI stack?</h2>
+      <p>The layers build from the bottom up. Each one depends on the one before it.</p>
+      <div class="scroll"><table>
+        <tr><th>#</th><th>Layer</th><th>What it is</th><th>The problem that led to it</th></tr>
+        <tr><td>1</td><td><strong>Workspace</strong></td><td>One home for every file, in plain text, under version control, with a fixed folder map.</td><td>Work was scattered across downloads, chats, and drives, so the assistant could not find what already existed.</td></tr>
+        <tr><td>2</td><td><strong>Memory</strong></td><td>One fact per file, plus an index the assistant reads at the start of every session: who we are, how we work, what we decided.</td><td>Every session started from zero. We re-explained the same context and the assistant repeated the same mistakes.</td></tr>
+        <tr><td>3</td><td><strong>Handoffs</strong></td><td>A "next session" note for each project and one numbered list of open items, updated when a session closes.</td><td>Long projects lost their place between sessions, and unfinished items disappeared.</td></tr>
+        <tr><td>4</td><td><strong>Skills</strong></td><td>Written instructions for work that repeats (e.g., a writing voice, a research method, a project kickoff interview), loaded only when that work comes up.</td><td>Quality depended on how well we prompted that day. The same standards had to be restated every time.</td></tr>
+        <tr><td>5</td><td><strong>Principles</strong></td><td>A short set of decision filters: what to build, in what order, how it should feel, and how it is put together.</td><td>We built polished things that did not matter, and the assistant agreed with whatever we proposed.</td></tr>
+        <tr><td>6</td><td><strong>Guardrails</strong></td><td>Named actions that always need a person: deleting, sending, publishing, and anything touching credentials.</td><td>An assistant that can act can also act wrongly. Speed without a gate is a risk.</td></tr>
+      </table></div>
+
+      <h2>What do we call each working part, and why does it exist?</h2>
+      <p>We named the parts we reuse. A named practice gets reused; an unnamed one gets rediscovered.</p>
+      <div class="scroll"><table>
+        <tr><th>Name</th><th>Layer</th><th>Purpose</th><th>The problem it solves</th></tr>
+        <tr><td><strong>The Cairn</strong></td><td>2, 3</td><td>The memory notes, their index, and the session-start and handoff habits (named for the stones that mark a trail).</td><td>Sessions that start cold and re-earn the same ground.</td></tr>
+        <tr><td><strong>The Mason</strong></td><td>2, 4</td><td>The loop that maintains the Cairn: notice a lesson, place it, verify it, and prune what is not reused.</td><td>Notes that pile up, go stale, and slow later sessions.</td></tr>
+        <tr><td><strong>Grill Me</strong></td><td>4</td><td>A skill: before a large build, the assistant asks ten or more questions in one batch, then writes a brief for sign-off.</td><td>An hour of building on a wrong assumption.</td></tr>
+        <tr><td><strong>The Triptych</strong></td><td>5</td><td>Three independent tests for every meaningful decision: UHV, Polish, and Synergy (the next three rows).</td><td>Leaning on one strength and neglecting the other two.</td></tr>
+        <tr><td><strong>UHV</strong></td><td>5</td><td>What to build at all: three questions that test whether something is worth building.</td><td>Well-made features that did not matter.</td></tr>
+        <tr><td><strong>Polish</strong></td><td>5</td><td>How it should feel in the user's hands: controls that match instinct, confirmed actions, tested failure paths.</td><td>The right idea, executed loosely enough to lose trust.</td></tr>
+        <tr><td><strong>Synergy</strong></td><td>5</td><td>How the person and the assistant work together: friction is a defect; refine, do not accumulate.</td><td>The right thing, delivered painfully.</td></tr>
+        <tr><td><strong>Substrate First</strong></td><td>5</td><td>The ordering rule: small pieces that other work will stand on go ahead of larger features.</td><td>Building the big thing first, then rebuilding it.</td></tr>
+        <tr><td><strong>The Joinery</strong></td><td>5</td><td>Nine rules for how the work is put together, so the next change stays cheap.</td><td>Changes that break something somewhere else.</td></tr>
+        <tr><td><strong>The Long Now</strong></td><td>5</td><td>The time-horizon test: act as an owner, and separate one-way doors from two-way doors.</td><td>Quick wins that cost more later.</td></tr>
+        <tr><td><strong>The Front Door</strong></td><td>5, 6</td><td>Use the official, authorized channel for every platform and data source.</td><td>Workarounds that break and cost trust when they do.</td></tr>
+      </table></div>
+
+      <h2>What did we learn building it?</h2>
+      <ul>
+        <li><strong>Capture in the moment.</strong> A lesson written at the end of a session has already lost its detail.</li>
+        <li><strong>When memory and reality disagree, memory is wrong.</strong> Check a note against the current state before acting on it.</li>
+        <li><strong>Name things.</strong> A named practice gets reused. An unnamed one gets rediscovered.</li>
+      </ul>
+
+      <h2>What tools do you need?</h2>
+      <p>Three: an AI coding assistant that reads and writes files (we use Claude Code), a plain-text notes app, and Git. The layers matter more than the tools.</p>
+
+      <h2>How do you start this week?</h2>
+      <ol>
+        <li><strong>Create one workspace folder</strong> and move one project's materials into it (e.g., for a career change: resume, profile text, course notes) to give the assistant one place to read.</li>
+        <li><strong>Write five memory notes:</strong> the goal, the background, the constraints, the writing voice, and the current plan, to remove the re-explaining.</li>
+        <li><strong>End every session with a handoff note:</strong> what was done, what is open, and what comes next, to make tomorrow start in minutes.</li>
+        <li><strong>Turn the first repeated task into a skill</strong> (e.g., a weekly status report) to hold one standard every time.</li>
+      </ol>
+      <p>More resources are in the <a href="/resources/">MCS resource library</a>.</p>
+
+
+      <section id="pdf" class="mt-12 rounded-[1.5rem] border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+        <h2 style="margin-top:0">Want this as a one-page PDF?</h2>
+        <p>Everything in the PDF is on this page, so you do not need to give us anything to read it. If a printable copy would help, enter your email and we will send it.</p>
+        <form class="library-form mt-5 space-y-4" data-resource="ai-stack-framework" novalidate>
+          <div class="grid gap-4 sm:grid-cols-2">
+            <label class="block text-sm font-medium text-slate-700">Email
+              <input type="email" name="email" required autocomplete="email" class="mt-1 w-full rounded-xl border border-slate-300 px-4 py-3 text-base text-slate-900 focus:border-sky focus:outline-none" />
+            </label>
+            <label class="block text-sm font-medium text-slate-700">First name (optional)
+              <input type="text" name="name" autocomplete="given-name" maxlength="80" class="mt-1 w-full rounded-xl border border-slate-300 px-4 py-3 text-base text-slate-900 focus:border-sky focus:outline-none" />
+            </label>
+          </div>
+          <div aria-hidden="true" style="position:absolute;left:-9999px;height:0;overflow:hidden">
+            <label>Company website <input type="text" name="company_url" tabindex="-1" autocomplete="off" /></label>
+          </div>
+          <label class="flex items-start gap-3 text-sm text-slate-700">
+            <input type="checkbox" name="updates" class="mt-1 h-4 w-4 rounded border-slate-300" />
+            <span>Also tell me when the next resource is out. One email per new resource, and nothing else.</span>
+          </label>
+          <button type="submit" class="rounded-xl bg-navy px-6 py-3 text-sm font-semibold text-white transition hover:bg-navy-light disabled:opacity-60">Email me the PDF</button>
+          <p class="form-status text-sm font-medium" role="status" aria-live="polite"></p>
+          <p class="text-xs leading-5 text-slate-500" style="margin-top:0.5rem">We use your email to send this one PDF from info@martincs.org. You are not added to a list unless you tick the box, and we never sell or share your address.</p>
+        </form>
+      </section>
+
+
+      <section class="mt-12 border-t border-slate-200 pt-8">
+        <h2 style="margin-top:0;font-size:1.1rem">Who wrote this?</h2>
+        <p>Jeremy Martin is a Senior Business Architect and the founder of Martin Consulting Solutions LLC in Tallahassee, Florida. The firm works in business architecture, digital transformation, and AI strategy. Questions go to <a href="mailto:info@martincs.org">info@martincs.org</a>.</p>
+      </section>
+
+    </article>
+  </main>
+
+  <footer class="px-6 py-8" style="background: #0f1f33;">
+    <div class="mx-auto flex max-w-6xl flex-col items-center gap-4 sm:flex-row sm:justify-between">
+      <img src="/logo.png" alt="Martin Consulting Solutions" class="h-8 w-auto brightness-0 invert opacity-70" />
+      <p class="text-xs text-slate-500">© 2026 Martin Consulting Solutions LLC. All rights reserved.</p>
+      <div class="flex gap-4 text-xs text-slate-500">
+        <a href="/resources/" class="transition hover:text-slate-300">Resources</a>
+        <a href="mailto:info@martincs.org" class="transition hover:text-slate-300">info@martincs.org</a>
+      </div>
+    </div>
+  </footer>
+  <script src="/resources/library.js" defer></script>
+</body>
+</html>
