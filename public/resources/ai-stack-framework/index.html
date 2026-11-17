@@ -12,7 +12,11 @@
   <meta property="og:description" content="What an AI stack is, the six layers we run every day (workspace, memory, handoffs, skills, principles, guardrails), the problem behind each one, and four steps to start this week." />
   <meta property="og:url" content="https://www.martincs.org/resources/ai-stack-framework/" />
   <meta property="og:site_name" content="Martin Consulting Solutions" />
-  <link rel="icon" href="/favicon.png" type="image/png" />
+  <link rel="icon" href="/favicon.ico" sizes="48x48" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <script>document.documentElement.classList.add("js");</script>
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "What is an AI stack? The six layers, and the lessons behind them", "description": "What an AI stack is, the six layers we run every day (workspace, memory, handoffs, skills, principles, guardrails), the problem behind each one, and four steps to start this week.", "datePublished": "2026-11-17", "dateModified": "2026-11-17", "mainEntityOfPage": "https://www.martincs.org/resources/ai-stack-framework/", "author": {"@type": "Person", "name": "Jeremy Martin", "jobTitle": "Senior Business Architect", "worksFor": {"@type": "Organization", "name": "Martin Consulting Solutions LLC", "url": "https://www.martincs.org"}}, "publisher": {"@type": "Organization", "name": "Martin Consulting Solutions LLC", "url": "https://www.martincs.org", "logo": {"@type": "ImageObject", "url": "https://www.martincs.org/logo.png"}}}</script>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -54,6 +58,29 @@
     .prose-mcs ul > li::marker { color: #3b9fd4; }
     .hero-gradient { background: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(59,159,212,0.18), transparent 65%), linear-gradient(160deg, #0f1f33 0%, #1e3349 45%, #2c4a6b 100%); }
     .brandbar { display: flex; height: 4px; } .brandbar span { flex: 1; }
+    @media (prefers-reduced-motion: no-preference) {
+      .js .reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
+      .js .reveal.in { opacity: 1; transform: none; }
+    }
+    .prose-mcs figure { margin: 2rem 0 0; }
+    .prose-mcs figure img { width: 100%; height: auto; border-radius: 1.25rem; box-shadow: 0 30px 70px -35px rgba(15,31,51,.55); }
+    .prose-mcs figcaption { margin-top: .6rem; font-size: .8rem; color: #64748b; text-align: center; }
+    .steps { display: grid; gap: 1rem; margin-top: 1.25rem; }
+    @media (min-width: 640px) { .steps { grid-template-columns: 1fr 1fr; } }
+    .step { background: #fff; border: 1px solid #e2e8f0; border-top: 4px solid var(--c); border-radius: 1.25rem; padding: 1.25rem; }
+    .step h3 { margin-top: 0 !important; display: flex; align-items: center; gap: .6rem; color: #2c4a6b !important; }
+    .step .num { flex: none; display: inline-flex; align-items: center; justify-content: center; width: 2rem; height: 2rem; border-radius: 999px; background: var(--c); color: #0f1f33; font-weight: 800; font-size: .95rem; }
+    .step p { margin-top: .6rem !important; font-size: .95rem; line-height: 1.65 !important; }
+    .chip { display: inline-block; border-radius: 999px; padding: .15rem .7rem; font-weight: 700; font-size: .82rem; color: #0f1f33; white-space: nowrap; }
+    .layers { margin-top: 1.5rem; display: flex; flex-direction: column; align-items: center; gap: .45rem; }
+    .layer { display: flex; align-items: center; gap: .75rem; border-radius: .9rem; padding: .7rem 1rem; color: #fff; font-weight: 700; box-shadow: 0 10px 24px -16px rgba(15,31,51,.6); }
+    .layer span { flex: none; display: inline-flex; align-items: center; justify-content: center; width: 1.7rem; height: 1.7rem; border-radius: 999px; background: rgba(255,255,255,.22); font-size: .85rem; }
+    .layer small { font-weight: 500; opacity: .9; font-size: .82rem; }
+    .lessons { display: grid; gap: 1rem; margin-top: 1.25rem; }
+    @media (min-width: 640px) { .lessons { grid-template-columns: repeat(3, 1fr); } }
+    .lesson { background: #fff; border: 1px solid #e2e8f0; border-radius: 1.25rem; padding: 1.25rem; }
+    .lesson svg { width: 2rem; height: 2rem; color: #c48a10; }
+    .lesson p { margin-top: .6rem !important; font-size: .93rem; line-height: 1.6 !important; }
   </style>
 </head>
 
@@ -84,7 +111,7 @@
   <main class="px-6 py-12 lg:py-16">
     <article class="prose-mcs mx-auto max-w-3xl">
 
-      <div class="rounded-[1.25rem] border-l-4 p-5 shadow-sm" style="border-color:#e8a820;background:#fef8e7">
+      <div class="reveal rounded-[1.25rem] border-l-4 p-5 shadow-sm" style="border-color:#e8a820;background:#fef8e7">
         <p style="margin-top:0"><strong class="text-navy">TL;DR:</strong> An AI stack is the set of files and habits around an AI assistant that lets each session start where the last one stopped. Ours has six layers: workspace, memory, handoffs, skills, principles, and guardrails. Each one exists because of a specific problem we hit. You can start this week with one folder, five notes, and a handoff habit.</p>
       </div>
 
@@ -94,7 +121,15 @@
 
       <h2>What are the six layers of an AI stack?</h2>
       <p>The layers build from the bottom up. Each one depends on the one before it.</p>
-      <div class="scroll"><table>
+      <div class="layers reveal" role="img" aria-label="Diagram: the six layers stacked from the bottom up. 1 Workspace, 2 Memory, 3 Handoffs, 4 Skills, 5 Principles, 6 Guardrails.">
+        <div class="layer" style="background:#c48a10;width:52%"><span>6</span><div>Guardrails<br><small>actions that wait for a person</small></div></div>
+        <div class="layer" style="background:#3b9fd4;width:61%"><span>5</span><div>Principles<br><small>filters for what to build</small></div></div>
+        <div class="layer" style="background:#3a8cc4;width:70%"><span>4</span><div>Skills<br><small>instructions for repeat work</small></div></div>
+        <div class="layer" style="background:#3d6f9e;width:79%"><span>3</span><div>Handoffs<br><small>next-session notes</small></div></div>
+        <div class="layer" style="background:#2c4a6b;width:88%"><span>2</span><div>Memory<br><small>one fact per file, with an index</small></div></div>
+        <div class="layer" style="background:#1e3349;width:97%"><span>1</span><div>Workspace<br><small>one home for every file</small></div></div>
+      </div>
+      <div class="scroll reveal"><table>
         <tr><th>#</th><th>Layer</th><th>What it is</th><th>The problem that led to it</th></tr>
         <tr><td>1</td><td><strong>Workspace</strong></td><td>One home for every file, in plain text, under version control, with a fixed folder map.</td><td>Work was scattered across downloads, chats, and drives, so the assistant could not find what already existed.</td></tr>
         <tr><td>2</td><td><strong>Memory</strong></td><td>One fact per file, plus an index the assistant reads at the start of every session: who we are, how we work, what we decided.</td><td>Every session started from zero. We re-explained the same context and the assistant repeated the same mistakes.</td></tr>
@@ -104,9 +139,14 @@
         <tr><td>6</td><td><strong>Guardrails</strong></td><td>Named actions that always need a person: deleting, sending, publishing, and anything touching credentials.</td><td>An assistant that can act can also act wrongly. Speed without a gate is a risk.</td></tr>
       </table></div>
 
+      <figure class="reveal">
+        <img src="/resources/img/ai-stack-framework.webp" width="1080" height="1350" loading="lazy" alt="Infographic: the six layers of an AI stack. 1 Workspace: one home for every file. 2 Memory: one fact per note plus an index. 3 Handoffs: a short note at the end of each session. 4 Skills: written instructions for work that repeats. 5 Principles: filters the assistant applies before it agrees. 6 Guardrails: named actions that always wait for a person." />
+        <figcaption>The six layers on one image, with the problem each one fixes.</figcaption>
+      </figure>
+
       <h2>What do we call each working part, and why does it exist?</h2>
       <p>We named the parts we reuse. A named practice gets reused; an unnamed one gets rediscovered.</p>
-      <div class="scroll"><table>
+      <div class="scroll reveal"><table>
         <tr><th>Name</th><th>Layer</th><th>Purpose</th><th>The problem it solves</th></tr>
         <tr><td><strong>The Cairn</strong></td><td>2, 3</td><td>The memory notes, their index, and the session-start and handoff habits (named for the stones that mark a trail).</td><td>Sessions that start cold and re-earn the same ground.</td></tr>
         <tr><td><strong>The Mason</strong></td><td>2, 4</td><td>The loop that maintains the Cairn: notice a lesson, place it, verify it, and prune what is not reused.</td><td>Notes that pile up, go stale, and slow later sessions.</td></tr>
@@ -122,11 +162,11 @@
       </table></div>
 
       <h2>What did we learn building it?</h2>
-      <ul>
-        <li><strong>Capture in the moment.</strong> A lesson written at the end of a session has already lost its detail.</li>
-        <li><strong>When memory and reality disagree, memory is wrong.</strong> Check a note against the current state before acting on it.</li>
-        <li><strong>Name things.</strong> A named practice gets reused. An unnamed one gets rediscovered.</li>
-      </ul>
+      <div class="lessons">
+        <div class="lesson reveal"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 7v5l3 2"/></svg><p><strong>Capture in the moment.</strong> A lesson written at the end of a session has already lost its detail.</p></div>
+        <div class="lesson reveal"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.6" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg><p><strong>When memory and reality disagree, memory is wrong.</strong> Check a note against the current state before acting on it.</p></div>
+        <div class="lesson reveal"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.6" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 005.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 009.568 3z"/><path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6z"/></svg><p><strong>Name things.</strong> A named practice gets reused. An unnamed one gets rediscovered.</p></div>
+      </div>
 
       <h2>What tools do you need?</h2>
       <p>Three: an AI coding assistant that reads and writes files (we use Claude Code), a plain-text notes app, and Git. The layers matter more than the tools.</p>
@@ -141,7 +181,7 @@
       <p>More resources are in the <a href="/resources/">MCS resource library</a>.</p>
 
 
-      <section id="pdf" class="pdf-card mt-12 rounded-[1.5rem] p-6 shadow-lg sm:p-8" style="background:linear-gradient(135deg,#1e3349 0%,#2c4a6b 100%)">
+      <section id="pdf" class="pdf-card reveal mt-12 rounded-[1.5rem] p-6 shadow-lg sm:p-8" style="background:linear-gradient(135deg,#1e3349 0%,#2c4a6b 100%)">
         <h2 style="margin-top:0;color:#fff;border-left-color:#e8a820">Want this as a one-page PDF?</h2>
         <p style="color:#cbd5e1">Everything in the PDF is on this page, so you do not need to give us anything to read it. If a printable copy would help, enter your email and we will send it.</p>
         <form class="library-form mt-5 space-y-4" data-resource="ai-stack-framework" novalidate>
@@ -185,6 +225,7 @@
       </div>
     </div>
   </footer>
+  <script src="/site.js" defer></script>
   <script src="/resources/library.js" defer></script>
 </body>
 </html>
